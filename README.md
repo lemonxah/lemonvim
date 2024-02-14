@@ -1,7 +1,8 @@
 # Install
   git clone https://github.com/lemonxah/lemonvim ~/.config/nvim
 
-  - sudo pacman -S base-devel go unzip rustup npm yarn zig git openssh pacman-pip lazygit
+  - sudo pacman -S base-devel go unzip rustup npm yarn zig git openssh pacman-pip lazygit python-pynvim tree-sitter-cli fd ripgrep fish
+  - sudo npm install -g neovim
   - rustup default stable
   - cargo install sqlx-cli
   - mkdir git
