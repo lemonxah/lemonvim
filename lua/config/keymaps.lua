@@ -9,6 +9,18 @@ vim.keymap.set(
   { desc = "Replace word under cursor" }
 )
 
+vim.keymap.set("n", "<space>h", function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local current_setting = vim.lsp.inlay_hint.is_enabled(bufnr)
+  vim.lsp.inlay_hint.enable(bufnr, not current_setting)
+end, { desc = "[lsp] toggle inlay hints" })
+
 -- in visual mode move code up or down with Shift + arrow keys also auto indent
 vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
+
+local bufnr = vim.api.nvim_get_current_buf()
+vim.keymap.set("n", "<leader>a", function()
+  vim.cmd.RustLsp("codeAction") -- supports rust-analyzer's grouping
+  -- or vim.lsp.buf.codeAction() if you don't want grouping.
+end, { silent = true, buffer = bufnr })
