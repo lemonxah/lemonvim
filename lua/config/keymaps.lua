@@ -9,11 +9,7 @@ vim.keymap.set(
   { desc = "Replace word under cursor" }
 )
 
-vim.keymap.set("n", "<space>h", function()
-  local bufnr = vim.api.nvim_get_current_buf()
-  local current_setting = vim.lsp.inlay_hint.is_enabled(bufnr)
-  vim.lsp.inlay_hint.enable(bufnr, not current_setting)
-end, { desc = "[lsp] toggle inlay hints" })
+vim.keymap.set("n", "<leader>o", "<cmd>Outline<CR>", { desc = "Toggle outline" })
 
 -- in visual mode move code up or down with Shift + arrow keys also auto indent
 vim.keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
