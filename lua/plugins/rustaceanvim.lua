@@ -20,9 +20,7 @@ return {
           },
         },
         on_attach = function(client, bufnr)
-          if client.name == "rust-analyzer" and vim.fn.has("nvim-0.10") then
-            vim.lsp.inlay_hint.enable(bufnr, true)
-          end
+          vim.lsp.inlay_hint.enable(true)
         end,
       },
     },
